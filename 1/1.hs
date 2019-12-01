@@ -13,11 +13,8 @@ main = do
 
 -- | Part 1
 f :: Int -> Int
-f = floor . subtract 2 . (/3) . fromIntegral
+f = subtract 2 . (`div` 3)
 
 -- | Part 2
 accum :: Int -> Int
-accum = sum . unfoldr go
-  where
-    go x | f x <= 0  = Nothing
-         | otherwise = Just (x, f x)
+accum = sum . takeWhile (>=0) . iterate f
