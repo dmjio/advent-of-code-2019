@@ -13,7 +13,7 @@ main = do
 
 -- | Part 1
 f :: Int -> Int
-f mass = floor (fromIntegral mass / 3) - 2
+f = floor . subtract 2 . (/3) . fromIntegral
 
 -- | Part 2
 accum :: Int -> Int
